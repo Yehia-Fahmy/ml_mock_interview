@@ -41,10 +41,17 @@ model = MLP().to("cpu")
 
 # ---- TODO 1: Implement Weighted BCE Loss ----
 # The dataset is imbalanced (20% positive, 80% negative).
-# Task: Create a loss function that handles this class imbalance.
-# Hint: Use BCEWithLogitsLoss with pos_weight parameter.
-# The weight should be inversely proportional to class frequency.
-# Formula: pos_weight = (number of negative samples) / (number of positive samples)
+# 
+# To handle class imbalance, calculate pos_weight = (negative_samples) / (positive_samples)
+# 
+# Here's the exact formula to use:
+# pos_weight = torch.tensor([(len(y_tr) - y_tr.sum()) / y_tr.sum()])
+# 
+# Breakdown:
+# - len(y_tr) = total number of training samples
+# - y_tr.sum() = number of positive samples (since y_tr contains 0s and 1s)
+# - len(y_tr) - y_tr.sum() = number of negative samples
+# - The ratio gives us how much more weight to give positive examples
 
 # YOUR CODE HERE:
 criterion = None  # Replace with weighted BCE loss
