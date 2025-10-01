@@ -1,3 +1,24 @@
+# Python Projects
+
+## Hello World Project
+
+A simple Python hello world program to get started.
+
+### Running the Hello World Program
+
+```bash
+python3 main.py
+```
+
+This will run a simple interactive hello world program that:
+- Prints a welcome message
+- Asks for your name
+- Greets you personally
+
+No additional dependencies required!
+
+---
+
 # ML Interview Prep: 3 Entry-Level Questions
 
 ## Setup
